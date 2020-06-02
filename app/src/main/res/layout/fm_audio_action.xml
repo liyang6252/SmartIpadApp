@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fm"
+            type="com.leonyr.smartipaddemo.movie.AudioFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/common_bg_color"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/action_audio"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            app:onMulClick="@{fm::onClick}"
+            android:text="录音" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/action_audio"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+
+            <ImageView
+                android:id="@+id/action_audio_play"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_play"
+                app:onMulClick="@{fm::onClick}"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

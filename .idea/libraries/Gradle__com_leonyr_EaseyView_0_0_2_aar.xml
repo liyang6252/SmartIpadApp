@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.leonyr:EaseyView:0.0.2@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26c36d6efaa0716c6d06edb57e3155a7/EaseyView-0.0.2/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26c36d6efaa0716c6d06edb57e3155a7/EaseyView-0.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26c36d6efaa0716c6d06edb57e3155a7/EaseyView-0.0.2/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leonyr/EaseyView/0.0.2/da5cb0240f60cebb8ea50dc2762d491d0ddc17ff/EaseyView-0.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leonyr/EaseyView/0.0.2/129a6845d9542e0a707b32082ea30a7cad876af1/EaseyView-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

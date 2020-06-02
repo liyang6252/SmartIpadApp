@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.leonyr:MVVMFrame:0.0.2-nonet@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c5a2a5a5add229e815f0c42a53f21e25/MVVMFrame-0.0.2-nonet/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c5a2a5a5add229e815f0c42a53f21e25/MVVMFrame-0.0.2-nonet/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leonyr/MVVMFrame/0.0.2-nonet/6fb6af9edddf294d07d914e54bf2190d578a85dd/MVVMFrame-0.0.2-nonet-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leonyr/MVVMFrame/0.0.2-nonet/37269220b4accb16a6ab16767b6d7b179b54d49c/MVVMFrame-0.0.2-nonet-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

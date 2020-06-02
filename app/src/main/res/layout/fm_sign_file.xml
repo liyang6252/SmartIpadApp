@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fm"
+            type="com.leonyr.smartipaddemo.sign.SignFileFragment" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg_color">
+
+        <LinearLayout
+            android:id="@+id/file_operate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/file_sign"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                app:onMulClick="@{fm::onClick}"
+                android:text="签字" />
+
+            <Button
+                android:id="@+id/file_confirm"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                app:onMulClick="@{fm::onClick}"
+                android:text="提交" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/file_operate">
+
+            <com.leonyr.smartipaddemo.sign.ControlScrollView
+                android:id="@+id/file_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/file_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+            </com.leonyr.smartipaddemo.sign.ControlScrollView>
+
+            <RelativeLayout
+                android:id="@+id/file_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</layout>

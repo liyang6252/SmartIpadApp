@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="cropImageFragment"
+            type="com.leonyr.smartipaddemo.crop.CropImageFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg_color"
+        android:orientation="vertical">
+
+        <me.pqpo.smartcropperlib.view.CropImageView
+            android:id="@+id/iv_crop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="20dp"
+            app:civLineColor="@color/colorPrimary"
+            app:civMagnifierCrossColor="@color/colorPrimaryDark"
+            app:civShowEdgeMidPoint="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{cropImageFragment::onClick}"
+                android:layout_weight="1"
+                android:text="cancel" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:onClick="@{cropImageFragment::onClick}"
+                android:layout_weight="1"
+                android:text="ok" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

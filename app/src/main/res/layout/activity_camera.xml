@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fm"
+            type="com.leonyr.smartipaddemo.crop.CameraActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_action"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/take_photo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="拍照"
+                app:onMulClick="@{fm::onClick}"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/take_record"
+                android:layout_width="0dp"
+                android:text="视频"
+                app:onMulClick="@{fm::onClick}"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/operate_layout"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layout_action"
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginBottom="15dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="亮度" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_brightness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="对比度" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_contrast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="伽马" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_gamma"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="白平衡" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_wb_temp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="饱和度" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_satura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="色调" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_hue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="锐利度" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_sharpness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="45dp"
+                        android:text="背光补偿" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_backlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_weight="1">
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:text="红外灯开关"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:text="自动寻边"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="更改分辨率"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+
+                    <RadioGroup
+                        android:id="@+id/screen_layout"
+                        android:layout_width="match_parent"
+                        android:gravity="left"
+                        android:paddingStart="20dp"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/screen_high"
+                            android:text="高"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp" />
+
+                        <RadioButton
+                            android:id="@+id/screen_middle"
+                            android:text="中"
+                            android:gravity="center"
+                            android:checked="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp" />
+
+                        <RadioButton
+                            android:id="@+id/screen_low"
+                            android:text="低"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp" />
+
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/screen_rotate"
+                        android:layout_width="match_parent"
+                        app:onMulClick="@{fm::onClick}"
+                        android:text="旋转"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/screen_rotate_h"
+                        android:layout_width="match_parent"
+                        android:text="水平翻转"
+                        app:onMulClick="@{fm::onClick}"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.otaliastudios.cameraview.CameraView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:keepScreenOn="true"
+            app:cameraPlaySounds="true"
+            app:cameraGrid="off"
+            app:cameraCropOutput="false"
+            app:cameraFacing="back"
+            app:cameraFlash="off"
+            app:cameraAudio="on"
+            app:cameraGestureTap="focusWithMarker"
+            app:cameraGestureLongTap="none"
+            android:layout_toStartOf="@id/operate_layout"
+            app:cameraGesturePinch="zoom"
+            app:cameraGestureScrollHorizontal="none"
+            app:cameraGestureScrollVertical="none"
+            app:cameraJpegQuality="60"
+            app:cameraSessionType="picture" />
+
+    </RelativeLayout>
+
+
+</layout>

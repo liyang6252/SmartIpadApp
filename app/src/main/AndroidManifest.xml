@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.leonyr.smartipaddemo">
+    <!--android:sharedUserId="android.uid.system"-->
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.autofocus" />
+
+    <!-- 开启闪光灯权限 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <!--<uses-permission android:name="android.permission.SHUTDOWN"/>-->
+    <!--<uses-permission android:name="android.permission.REBOOT"/>-->
+
+    <application
+        android:name=".InitApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="landscape"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".home.HomeActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.leonyr.mvvm.act.Common"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            tools:replace="android:launchMode,android:screenOrientation" />
+
+        <activity
+            android:name=".NewCommon"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            tools:replace="android:launchMode,android:screenOrientation" />
+
+        <activity
+            android:name=".nfc.NFCActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".crop.CameraActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:icon="@drawable/ic_play"
+            android:screenOrientation="landscape"
+            tools:replace="android:launchMode,android:screenOrientation">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+        <service
+            android:name=".USBLinkService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="USB_NOTIFY_TAKE_PHOTO" />
+                <action android:name="USB_NOTIFY_TAKE_MOVIE" />
+                <action android:name="USB_NOTIFY_TAKE_AUDIO" />
+                <action android:name="USB_NOTIFY_PLAY_AUDIO" />
+                <action android:name="USB_NOTIFY_TAKE_FINGER_PRINT" />
+                <action android:name="USB_NOTIFY_TAKE_FINGER" />
+                <action android:name="USB_NOTIFY_DOWNLOAD_FINGER" />
+                <action android:name="USB_NOTIFY_TAKE_PASSWORD" />
+                <action android:name="USB_NOTIFY_TAKE_SIGNATURE" />
+                <action android:name="USB_NOTIFY_FILE_SIGNER" />
+                <action android:name="USB_NOTIFY_TAKE_SETTING" />
+                <action android:name="USB_NOTIFY_TAKE_NFC" />
+                <action android:name="USB_NOTIFY_TAKE_CLEAN" />
+                <action android:name="USB_NOTIFY_DOWNLOAD_DATA" />
+                <action android:name="USB_NOTIFY_INSTALL_APP" />
+                <action android:name="USB_NOTIFY_TAKE_LIGHT" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

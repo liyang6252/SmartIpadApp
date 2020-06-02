@@ -1,0 +1,160 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply from: 'and_res_guard.gradle'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileVersion
+    buildToolsVersion rootProject.ext.android.buildVersion
+
+    defaultConfig {
+        applicationId "com.leonyr.smartipaddemo"
+        minSdkVersion rootProject.ext.android.minVersion
+        targetSdkVersion rootProject.ext.android.targetVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        resConfigs 'zh-rCN' // 只保留中文资源
+        flavorDimensions "default"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    /*sourceSets {
+
+        main {
+            res.srcDirs 'src/main/res'
+        }
+
+        AY004.res.srcDirs = ['src/main/res', 'src/main/resa']
+        CT0830.res.srcDirs = ['src/main/res', 'src/main/resb']//指定资源目录
+    }*/
+
+    productFlavors {
+        AY004 {
+            buildConfigField "String", "CHANNEL", '"AY004"'
+        }
+
+        CT0830 {
+            buildConfigField "String", "CHANNEL", '"CT0830"'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+    }
+
+    buildTypes {
+
+        debug {
+//            signingConfig signingConfigs.release
+            multiDexEnabled true
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            debuggable false
+            minifyEnabled false
+            multiDexEnabled true
+            shrinkResources false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (outputFileName != null && outputFileName.endsWith('.apk')) {
+                // 输出apk名称为Pos_v1.0.0_201709251000_.apk
+                outputFileName = "GaoPai_${variant.productFlavors[0].name}_${releaseTime()}_${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+}
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+greendao {
+    schemaVersion 2 //数据库版本号
+    daoPackage 'com.leonyr.smartipaddemo.db'
+// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录,请注意，这里路径用.不要用/
+    generateTests false //设置为true以自动生成单元测试。
+    targetGenDirTests 'src/main/java' //应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation(rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude group: 'com.android.support'
+    }
+    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["constraint1"]
+    implementation rootProject.ext.dependencies["recyclerview-v7"]
+    implementation rootProject.ext.dependencies["multidex"]
+    implementation rootProject.ext.dependencies["exifinterface"]
+
+    implementation(name: 'smartcropperlib-v1.2.5-release', ext: 'aar')
+    implementation(name: 'TGFinger661JSDK20190828', ext: 'aar') {
+        transitive = false
+    }
+    annotationProcessor rootProject.ext.thirdLib["parceler-annotation"]
+    implementation(rootProject.ext.thirdLib["rxpermission"]) {
+        transitive = false
+    }
+    implementation rootProject.ext.thirdLib["gson"]
+    implementation rootProject.ext.thirdLib["multitype"]
+
+    implementation rootProject.ext.thirdLib["greenDao"]
+    implementation(rootProject.ext.thirdLib["rxandroid"])
+    implementation(rootProject.ext.thirdLib["rxbus"]) {
+        transitive = false
+    }
+    implementation project(':MaterialCalendar')
+    compile(rootProject.ext.thirdLib["glide"]) {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor rootProject.ext.thirdLib["glideCompiler"]
+
+    implementation rootProject.ext.thirdLib["parceler-api"]
+    annotationProcessor rootProject.ext.thirdLib["parceler-annotation"]
+
+    /*debugApi project(':MVVMFrame')
+        releaseApi rootProject.ext.leonyr["MVVM-NONET"]*/
+    api(rootProject.ext.leonyr["utils"]) {
+        transitive = false
+    }
+    api(rootProject.ext.leonyr["MVVM-NONET"]) {
+        transitive = false
+    }
+    api(rootProject.ext.leonyr["EaseyView"]) {
+        transitive = false
+    }
+
+//    implementation 'com.github.yangjie10930:EpMedia:v0.9.5'
+//    implementation project(":libusbcamera")
+    implementation project(":cameraview")
+//    implementation('com.github.jiangdongguo:AndroidUSBCamera:2.3.1') {
+//        exclude group: 'com.android.support'
+//    }
+//    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.11'
+//    implementation files('libs/itextpdf-5.5.10.jar')
+}

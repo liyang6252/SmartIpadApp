@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        android:background="@color/common_bg_color"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/layout_time"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:paddingTop="40dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextClock
+                android:id="@+id/home_tc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:format12Hour="hh:mm"
+                android:format24Hour="HH:mm"
+                android:textSize="56sp" />
+
+            <TextView
+                android:id="@+id/home_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/home_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_rl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+        <com.leonyr.calendarview.MaterialCalendarView
+            android:id="@+id/home_cv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/layout_time"
+            app:mcv_calendarMode="month"
+            app:mcv_dateTextAppearance="@style/CalendarTextAppearance"
+            app:mcv_headerTextAppearance="@style/CalendarHeaderAppearance"
+            app:mcv_selectionMode="single"
+            app:mcv_weekDayTextAppearance="@style/CalendarWeekAppearance" />
+
+
+        <TextView
+            android:id="@+id/version_tv"
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+</layout>

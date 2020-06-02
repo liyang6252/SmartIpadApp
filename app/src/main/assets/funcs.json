@@ -1,0 +1,38 @@
+[
+  {
+    "name": "手写签名",
+    "pos": 1,
+    "funcCode": "USB_NOTIFY_TAKE_SIGNATURE"
+  },
+  {
+    "name": "图像功能",
+    "pos": 2,
+    "funcCode": "USB_NOTIFY_TAKE_PHOTO"
+  },
+  {
+    "name": "指静脉识别",
+    "pos": 5,
+    "funcCode": "USB_NOTIFY_TAKE_FINGER_PRINT"
+  },
+  {
+    "name": "nfc打卡",
+    "pos": 6,
+    "funcCode": "USB_NOTIFY_TAKE_NFC"
+  },
+  {
+    "name": "口令功能",
+    "pos": 7,
+    "funcCode": "USB_NOTIFY_TAKE_PASSWORD"
+  },
+  {
+    "name": "台灯功能",
+    "pos": 8,
+    "funcCode": "USB_NOTIFY_TAKE_LIGHT"
+  },
+  {
+    "name": "软件设置",
+    "pos": 9,
+    "funcCode": "USB_NOTIFY_TAKE_SETTING"
+  }
+
+]

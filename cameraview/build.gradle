@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileVersion
+    buildToolsVersion rootProject.ext.android.buildVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minVersion
+        targetSdkVersion rootProject.ext.android.targetVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/options'
+        main.java.srcDirs += 'src/main/views'
+        main.java.srcDirs += 'src/main/utils'
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["exifinterface"]
+    implementation rootProject.ext.dependencies["supportAnnotations"]
+}
+
+//endregion
+
+//region javadoc and sources
+
+// From official sample https://github.com/bintray/bintray-examples/blob/master/gradle-aar-example/build.gradle
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += project.files("${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar")
+    project.android.libraryVariants.all { variant ->
+        if (variant.name == 'release') {
+            classpath += files(variant.javaCompile.classpath)
+        }
+    }
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+    exclude '**/internal/**'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+
+//endregion
+

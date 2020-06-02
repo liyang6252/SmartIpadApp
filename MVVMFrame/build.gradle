@@ -1,0 +1,103 @@
+apply plugin: 'com.android.library'
+
+//apply from: 'bintrayUpload.gradle'
+//  ./gradlew clean build bintrayUpload -PbintrayUser=lleonyr -PbintrayKey=313be3575e7efefc75aafe6cea597c9337984f
+
+android {
+    compileSdkVersion rootProject.ext.android.compileVersion
+    buildToolsVersion rootProject.ext.android.buildVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minVersion
+        targetSdkVersion rootProject.ext.android.targetVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        buildConfigField "String", "API_HOST", '""'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+
+}
+
+
+dependencies {
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["recyclerview-v7"]
+    compile rootProject.ext.dependencies["lifecycle-runtime"]
+    compile rootProject.ext.dependencies["lifecycle-extensions"]
+    annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
+
+    /*compile rootProject.ext.thirdLib["retrofit"]
+    compile rootProject.ext.thirdLib["rxandroid"]
+    compile rootProject.ext.thirdLib["rxjava2-adapter"]*/
+    /*compile(rootProject.ext.thirdLib["andPermission"]) {
+        transitive = false
+    }*/
+    compile rootProject.ext.thirdLib["rxandroid"]
+    compile(rootProject.ext.thirdLib["rxpermission"]) {
+        transitive = false
+    }
+    compile rootProject.ext.thirdLib["gson"]
+    /*compile rootProject.ext.thirdLib["okhttp"]
+    compile rootProject.ext.thirdLib["loggingInterceptor"]
+    compile rootProject.ext.thirdLib["converter-gson"]*/
+    compile rootProject.ext.thirdLib["multitype"]
+    compile(rootProject.ext.thirdLib["glide"]) {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor rootProject.ext.thirdLib["glideCompiler"]
+
+    compile rootProject.ext.thirdLib["parceler-api"]
+    annotationProcessor rootProject.ext.thirdLib["parceler-annotation"]
+
+    compile(rootProject.ext.leonyr["utils"]) {
+        exclude group: "com.android.support"
+    }
+}
+
+ext {
+    libraryPackaging = 'aar'                                            //上传aar形式的打包文件
+
+    // jcenter
+    bintrayRepo = "library"
+    // 你上传的位于bintray中的Repository名称，如果没有创建会有一个叫maven的
+    name = 'MVVMFrame'                                                // 必须和library module的名字相同
+    libraryDesc = 'MVVM框架'
+    publishedGroupId = 'com.leonyr'                // 填写groupId， 一般是包名，比如：com.android.support
+    versionName = '0.0.4'                                               // 版本号，比如：22.2.1
+    websiteUrl = 'https://github.com/LLeonyR/MVVMFrameApp'              // 可以填写github上的库地址.
+    issueTrackerUrl = 'https://github.com/LLeonyR/MVVMFrameApp.git'  // 可以填写github库的issue地址.
+    vcsUrl = 'https://github.com/LLeonyR/MVVMFrameApp.git'              // 可以填写github上库的地址.
+    licenseName = "Apache-2.0"
+    libraryVersionDesc = 'tools class '
+
+    // maven
+    artifact = 'MVVMFrame'                                            // 必须和library module的名字相同
+    libraryName = 'MVVMFrame'
+    libraryName = 'MVVMFrame'
+    developerId = 'lleonyr'
+    developerName = 'LeonyR'
+    developerEmail = 'LeonyR@126.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+
+}
+//apply from: 'android-maven-install.gradle'
+//apply from: 'android-tasks.gradle'
+//apply from: 'bintray.gradle'
+//apply from: 'jcenter.gradle'

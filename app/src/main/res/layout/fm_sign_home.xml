@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fm"
+            type="com.leonyr.smartipaddemo.sign.SignHomeFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_bg_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="手写签名"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/sign_set"
+                android:layout_width="60dp"
+                android:src="@drawable/ic_setting"
+                android:padding="10dp"
+                app:onMulClick="@{fm::onClick}"
+                android:layout_alignParentEnd="true"
+                android:layout_height="50dp"/>
+
+        </RelativeLayout>
+
+        <com.leonyr.smartipaddemo.view.pen.StrokesView
+            android:id="@+id/signView"
+            android:layout_width="match_parent"
+            app:paint_brush_width="10"
+            android:layout_height="230dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sign_clear"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:onMulClick="@{fm::onClick}"
+                android:text="重新签名" />
+
+            <Button
+                android:id="@+id/sign_save"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:onMulClick="@{fm::onClick}"
+                android:text="提交签名" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :smartcropperlib-v1.2.5-release:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64818f82778e1a9cabbf3103e1c0baa0/smartcropperlib-v1.2.5-release/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64818f82778e1a9cabbf3103e1c0baa0/smartcropperlib-v1.2.5-release/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

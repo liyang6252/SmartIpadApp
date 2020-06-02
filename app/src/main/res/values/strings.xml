@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">高拍应用系统</string>
+    <string name="file_path">文件保存路径：%s\n人像保存路径：%s\n录音保存路径：%s</string>
+</resources>

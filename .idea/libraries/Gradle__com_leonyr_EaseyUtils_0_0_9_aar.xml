@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.leonyr:EaseyUtils:0.0.9@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b933e5f7a2d06b39eddeaf9574651c8/EaseyUtils-0.0.9/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b933e5f7a2d06b39eddeaf9574651c8/EaseyUtils-0.0.9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b933e5f7a2d06b39eddeaf9574651c8/EaseyUtils-0.0.9/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leonyr/EaseyUtils/0.0.9/dd42f85b35a0c3b5ae7bff41ccf725560e7e8aa5/EaseyUtils-0.0.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leonyr/EaseyUtils/0.0.9/3855e3be7bb8eaeab026311f59c513cb55228cd0/EaseyUtils-0.0.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

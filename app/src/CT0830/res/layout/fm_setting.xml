@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg_color"
+        android:scrollbars="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/set_phone_date"
+                style="@style/style_set_item"
+                app:onMulClick="@{fm::onClick}"
+                android:text="时间设置" />
+
+            <TextView
+                android:id="@+id/set_nfc"
+                style="@style/style_set_item"
+                app:onMulClick="@{fm::onClick}"
+                android:text="NFC开关" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/set_switch_finger">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/set_switch_finger_voice_m"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            app:onMulClick="@{fm::onClick}"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/set_switch_finger_voice_t"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/set_switch_finger_voice_a"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            app:onMulClick="@{fm::onClick}"
+                            android:text="+" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:text="指静脉声音" />
+
+
+                </RelativeLayout>
+
+                <Switch
+                    android:id="@+id/set_switch_finger"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/set_title_finger"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="指静脉识别开关"
+                    android:textColor="@color/blue_grey" />
+
+                <TextView
+                    android:id="@+id/set_title_finger"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#999999"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="指静脉识别"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <Switch
+                    android:id="@+id/set_switch_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/set_title_camera"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="摄像头闪光灯开关"
+                    android:textColor="@color/blue_grey" />
+
+                <TextView
+                    android:id="@+id/set_title_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#999999"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="高清摄像头"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#999999"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="手写批注"
+                    android:textSize="12sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/set_pen_m"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            app:onMulClick="@{fm::onClick}"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/set_pen_t"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="15"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/set_pen_a"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            app:onMulClick="@{fm::onClick}"
+                            android:text="+" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingStart="10dp"
+                        android:text="笔划粗细"
+                        android:textColor="@color/blue_grey" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/set_color_preview_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="#000000"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:id="@+id/set_color_preview"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/black"
+                            app:onMulClick="@{fm::onClick}" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/set_color_picker_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:gravity="center"
+                        android:paddingStart="10dp"
+                        android:text="颜色"
+                        android:textColor="@color/blue_grey" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/set_phone_state"
+                style="@style/style_set_item"
+                app:onMulClick="@{fm::onClick}"
+                android:text="手机状态" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/set_cache"
+                    style="@style/style_set_item"
+                    app:onMulClick="@{fm::onClick}"
+                    android:text="缓存清理" />
+
+                <TextView
+                    android:id="@+id/set_cache_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="60dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <data>
+
+        <variable
+            name="fm"
+            type="com.leonyr.smartipaddemo.set.SettingFragment" />
+    </data>
+</layout>
