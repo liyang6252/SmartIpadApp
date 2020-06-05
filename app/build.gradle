@@ -111,7 +111,6 @@ dependencies {
     implementation rootProject.ext.dependencies["recyclerview-v7"]
     implementation rootProject.ext.dependencies["multidex"]
     implementation rootProject.ext.dependencies["exifinterface"]
-
     implementation(name: 'smartcropperlib-v1.2.5-release', ext: 'aar')
     implementation(name: 'TGFinger661JSDK20190828', ext: 'aar') {
         transitive = false
@@ -122,7 +121,6 @@ dependencies {
     }
     implementation rootProject.ext.thirdLib["gson"]
     implementation rootProject.ext.thirdLib["multitype"]
-
     implementation rootProject.ext.thirdLib["greenDao"]
     implementation(rootProject.ext.thirdLib["rxandroid"])
     implementation(rootProject.ext.thirdLib["rxbus"]) {
@@ -133,12 +131,10 @@ dependencies {
         exclude group: "com.android.support"
     }
     annotationProcessor rootProject.ext.thirdLib["glideCompiler"]
-
     implementation rootProject.ext.thirdLib["parceler-api"]
     annotationProcessor rootProject.ext.thirdLib["parceler-annotation"]
-
     /*debugApi project(':MVVMFrame')
-        releaseApi rootProject.ext.leonyr["MVVM-NONET"]*/
+            releaseApi rootProject.ext.leonyr["MVVM-NONET"]*/
     api(rootProject.ext.leonyr["utils"]) {
         transitive = false
     }
@@ -148,13 +144,13 @@ dependencies {
     api(rootProject.ext.leonyr["EaseyView"]) {
         transitive = false
     }
-
-//    implementation 'com.github.yangjie10930:EpMedia:v0.9.5'
-//    implementation project(":libusbcamera")
-    implementation project(":cameraview")
-//    implementation('com.github.jiangdongguo:AndroidUSBCamera:2.3.1') {
-//        exclude group: 'com.android.support'
-//    }
-//    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.11'
-//    implementation files('libs/itextpdf-5.5.10.jar')
+    //    implementation 'com.github.yangjie10930:EpMedia:v0.9.5'
+    //    implementation project(":libusbcamera")
+    implementation project(':cameraview')
+    //    implementation('com.github.jiangdongguo:AndroidUSBCamera:2.3.1') {
+    //        exclude group: 'com.android.support'
+    //    }
+    //    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.11'
+    //    implementation files('libs/itextpdf-5.5.10.jar')
+    implementation files('libs/UVCLibrary.jar')
 }

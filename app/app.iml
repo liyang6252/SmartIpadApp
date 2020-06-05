@@ -132,6 +132,7 @@
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android\projects\SmartIpadApp\app\libs\itextpdf-5.5.11.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android\projects\SmartIpadApp\app\libs\UVCLibrary.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.databinding:baseLibrary:3.5.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.0@jar" level="project" />
@@ -181,8 +182,6 @@
     <orderEntry type="library" name="Gradle: com.jakewharton.threetenabp:threetenabp:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: :smartcropperlib-v1.2.5-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :TGFinger661JSDK20190828:@aar" level="project" />
-    <orderEntry type="module" module-name="MaterialCalendar" />
-    <orderEntry type="module" module-name="cameraview" />
     <orderEntry type="module" module-name="MaterialCalendar" />
     <orderEntry type="module" module-name="cameraview" />
   </component>
